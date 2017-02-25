@@ -37,7 +37,7 @@ could figure out where the keys belonged, so the whole lock and keys
 replacement was unnecessary. I left out the fact that I didn’t know where I
 lost the keys, so let’s keep that between us.
 
-<img src="http://localhost:4000/assets/blog/img/1 - Keyless in Milan.jpg"
+<img src="/assets/blog/img/1 - Keyless in Milan.jpg"
      alt="Keyless in Milan">
 
 Another subtle difference here that I bet you’ve never heard is that the weight
@@ -62,7 +62,7 @@ up who was able to rescue us. It was definitely a memorable experience, but not
 one I’m dying to repeat. Please see the below selfie to get a feel for the
 environment of that elevator.
 
-<img src="http://localhost:4000/assets/blog/img/2 - A happy group in the elevator.jpg"
+<img src="/assets/blog/img/2 - A happy group in the elevator.jpg"
      alt="A happy group in the elevator">
 
 I’m happy to say that the positive experiences I’ve had so far have vastly
@@ -77,7 +77,7 @@ an hour to ski all the way down. One day I skied into La Rosière, a ski town in
 France on the other side of the range, and got some crepes. Overall, it was a
 unbelievable experience that I hope I’ll get the chance to do again.
 
-<img src="http://localhost:4000/assets/blog/img/3 - That's me in the picture I swear.jpg"
+<img src="/assets/blog/img/3 - That's me in the picture I swear.jpg"
      alt="That's me in the picture I swear">
 
 The next week I went to Dublin with Sophie and Melissa, two of my friends from
@@ -96,7 +96,7 @@ museum and the Rijksmuseum (another art museum), and the Heineken factory. We
 went to a Chainsmokers concert which was pretty crazy and super fun. We got a
 feel for what the culture was like and all in all, had a great trip.
 
-<img src="http://localhost:4000/assets/blog/img/4 - Pre-shot hair check.jpg"
+<img src="/assets/blog/img/4 - Pre-shot hair check.jpg"
      alt="Pre-shot hair check">
 
 This weekend I’m staying in Milan, and I’m happy to have a little break from
