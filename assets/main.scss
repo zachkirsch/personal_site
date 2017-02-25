@@ -38,6 +38,10 @@ $on-laptop:        800px;
 // Import partials from the `minima` theme.
 @import "minima";
 
+h2 {
+  margin-top: 40px;
+}
+
 #profile {
   display: block;
   margin: auto;
