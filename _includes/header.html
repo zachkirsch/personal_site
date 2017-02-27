@@ -14,9 +14,10 @@
       </span>
 
       <div class="trigger" onclick="void(0)">
-        {% for my_page in site.pages %}
-          {% if my_page.title %}
-          <a class="page-link" href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}</a>
+        {% assign pages = site.pages | sort: "nav_bar_index" %}
+        {% for page in pages %}
+          {% if page.nav_bar_title %}
+          <a class="page-link" href="{{ page.url | relative_url }}">{{ page.nav_bar_title | escape }}</a>
           {% endif %}
         {% endfor %}
         <a class="page-link" href="/assets/zach-kirsch-resume.pdf" target="_blank">Resume</a>
