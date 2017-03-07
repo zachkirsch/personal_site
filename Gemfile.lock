@@ -7,7 +7,7 @@ GEM
     exifr (1.2.5)
     ffi (1.9.18)
     forwardable-extended (2.6.0)
-    jekyll (3.4.0)
+    jekyll (3.4.1)
       addressable (~> 2.4)
       colorator (~> 1.0)
       jekyll-sass-converter (~> 1.0)
@@ -47,7 +47,7 @@ PLATFORMS
 
 DEPENDENCIES
   exifr
-  jekyll (= 3.4.0)
+  jekyll (= 3.4.1)
   jekyll-feed (~> 0.6)
   minima (~> 2.0)
   tzinfo-data
