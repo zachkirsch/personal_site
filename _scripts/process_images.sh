@@ -13,6 +13,6 @@ do
     date=$(exiftool -s -s -s -d '%Y-%m-%d-%H-%M-%S' -DateTimeOriginal "$img") \
     && filename="${date}.jpg" \
     && convert "$img" -auto-orient -thumbnail 360x225 "${thumbs}/${filename}" \
-    && convert "$img" -auto-orient -size 1200x750 "${fulls}/${filename}" \
+    && convert "$img" -auto-orient -resize 1200x750 "${fulls}/${filename}" \
     && echo "☑️️  $filename"
 done
