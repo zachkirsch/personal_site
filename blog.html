@@ -7,16 +7,22 @@ blog_index: true
 permalink: blog/
 ---
 
-  <ul class="post-list">
-    {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+  {% assign sorted_cats = site.categories | sort %}
 
-        <h2>
+  {% for category in sorted_cats %}
+    {% assign sorted_posts = category[1] | reversed %}
+    <h3 id="{{category[0] | uri_escape | downcase }}">{{category[0]}}</H2>
+    <ul class="post-list">
+      {% for post in sorted_posts %}
+        <li>
+          <p>
+          <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
           <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
-        </h2>
-      </li>
-    {% endfor %}
-  </ul>
+          </p>
+        </li>
+      {% endfor %}
+    </ul>
+  {% endfor %}
 
   <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p>
+

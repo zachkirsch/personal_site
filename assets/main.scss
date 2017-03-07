@@ -59,3 +59,19 @@ $on-laptop:        800px;
   max-width:40%;
   max-height:40%;
 }
+
+.post-list {
+  margin-left: 1em;
+}
+
+.post-link {
+  font-size: 18px;
+}
+
+.post-list > li {
+  margin-bottom: 10px;
+}
+
+.rss-subscribe {
+    margin-top: 50px;
+}

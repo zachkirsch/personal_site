@@ -2,8 +2,17 @@
 layout: post
 title:  "Ciao from Milano!"
 date:   2017-01-15 20:35:41 -0500
-categories: abroad
+categories:
+  - Abroad E-list
 ---
+
+Hello family and friends,
+
+If you are reading this, then it means that I thought you would be at least
+remotely interested in my study abroad adventures! I'll be sending out updates
+periodically with how my semester in Milan is going. If you'd like to be
+removed from the list, just let me know, and I will try my best to not be
+offended.
 
 I arrived in Milan on Tuesday morning, so I've been here almost a week. My
 first impression of the city was that it is surprising how similar many things
@@ -57,4 +66,7 @@ been a while since I've skied, so I'm glad I have extensive training to fall
 back on ("french fries to go, pizza to stop"). We are also planning a trip as
 an apartment, but we haven't decided on a city yet. I'm hoping to visit a lot
 of different places over the next few months, and if you have any suggestions,
-feel free to throw them my way.
+feel free to throw them my way. And if you find yourself in the Milan area,
+let me know!
+
+Thanks for reading this essay of an email. Ciao!

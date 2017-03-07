@@ -2,8 +2,16 @@
 layout: post
 title:  "Adventures and Misadventures"
 date:   2017-02-24 18:36:29 -0500
-categories: abroad
+categories:
+  - Abroad E-list
 ---
+
+Hello E-list!
+
+It's been almost 7 weeks since I've arrived in Milan, so I think it's about
+time I give you another update. I am happy to report that only one person has
+requested to be taken off the e-list, and to spite him, I am emailing this
+update to him twice. (Sorry Ron).
 
 To sum up my abroad experience so far in one word: new. I am learning a new
 language, meeting new people, trying new foods, visiting new places, and doing
@@ -110,3 +118,8 @@ welcoming and understanding that my Italian is, for lack of a better word,
 awful. If you are planning a trip to Italy, I recommend you make a pit stop
 here. And if you are planning a trip to Milan in the next two months, please
 let me know!
+
+Sorry this was so long, but I hope you feel informed about my time here so far.
+Looking forward to next weekend (Athens) and beyond.
+
+Ciao!
