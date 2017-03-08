@@ -10,8 +10,8 @@ process_image() {
     date=$(exiftool -s -s -s -d '%Y-%m-%d-%H-%M-%S' -DateTimeOriginal "$img")
     if [[ ! -z "${date}" ]]; then
         filename="${date}.jpg"
-        convert "$img" -auto-orient -thumbnail 360x225 "${thumbs}/${filename}"
-        convert "$img" -auto-orient -resize 1200x750 "${fulls}/${filename}"
+        convert "$img" -auto-orient -thumbnail 400x "${thumbs}/${filename}"
+        convert "$img" -auto-orient -resize 1200x "${fulls}/${filename}"
         # echo "☑️️  $filename"
     else
         echo "Error: could not determine date of image: $img"
