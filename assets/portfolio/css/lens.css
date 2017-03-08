@@ -642,7 +642,8 @@ dl {
       outline: 0; }
       #thumbnails article .thumbnail img {
         display: block;
-        width: 100%; }
+        width: 100%;
+        margin-top: 1em; }
       #thumbnails article .thumbnail:before {
         -moz-pointer-events: none;
         -webkit-pointer-events: none;
