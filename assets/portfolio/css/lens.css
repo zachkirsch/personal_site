@@ -538,7 +538,7 @@ dl {
   -webkit-overflow-scrolling: touch;
   position: fixed;
   top: 0;
-  width: 22.5em;
+  width: 12.5em;
   height: 100%;
   background: #fff;
   outline: 0;
@@ -564,7 +564,7 @@ dl {
     left: 0; }
   body.fullscreen #main {
     visibility: hidden;
-    right: -22.5em; }
+    right: -12.5em; }
   body.is-loading-1 #main {
     opacity: 0;
     right: -2em; }
@@ -631,7 +631,7 @@ dl {
   padding: 0 0.75em; }
   #thumbnails article {
     position: relative;
-    width: 50%;
+    width: 100%;
     background: white;
     outline: 0; }
     #thumbnails article .thumbnail {
@@ -723,7 +723,7 @@ dl {
   transition: opacity 0.25s ease, width 0.25s ease;
   position: absolute;
   top: 0;
-  width: calc(100% - 22.5em);
+  width: calc(100% - 12.5em);
   height: 100%;
   left: 0; }
   #viewer .inner {
