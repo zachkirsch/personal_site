@@ -538,7 +538,7 @@ dl {
   -webkit-overflow-scrolling: touch;
   position: fixed;
   top: 0;
-  width: 12.5em;
+  width: 20em;
   height: 100%;
   background: #fff;
   outline: 0;
@@ -564,7 +564,7 @@ dl {
     left: 0; }
   body.fullscreen #main {
     visibility: hidden;
-    right: -12.5em; }
+    right: -20em; }
   body.is-loading-1 #main {
     opacity: 0;
     right: -2em; }
@@ -631,19 +631,24 @@ dl {
   padding: 0 0.75em; }
   #thumbnails article {
     position: relative;
-    width: 100%;
+    width: 33.33333%;
     background: white;
-    outline: 0; }
+    outline: 0;
+    margin: 0.2em 0em; }
     #thumbnails article .thumbnail {
       -webkit-tap-highlight-color: transparent;
       display: block;
       position: relative;
       border: 0;
-      outline: 0; }
+      outline: 0;
+      height: 100%;
+      margin: 0em 0.2em; }
       #thumbnails article .thumbnail img {
         display: block;
         width: 100%;
-        margin-top: 1em; }
+        object-fit: cover;
+        height: 100%;
+        outline: 1px solid lightgray; }
       #thumbnails article .thumbnail:before {
         -moz-pointer-events: none;
         -webkit-pointer-events: none;
@@ -724,7 +729,7 @@ dl {
   transition: opacity 0s ease, width 0s ease;
   position: absolute;
   top: 0;
-  width: calc(100% - 12.5em);
+  width: calc(100% - 20em);
   height: 100%;
   left: 0; }
   #viewer .inner {
