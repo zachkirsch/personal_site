@@ -12,7 +12,7 @@ process_image() {
         filename="${date}.jpg"
         convert "$img" -auto-orient -thumbnail 400x "${thumbs}/${filename}"
         convert "$img" -auto-orient -resize 1200x "${fulls}/${filename}"
-        # echo "☑️️  $filename"
+        echo "☑️️  $filename"
     else
         echo "Error: could not determine date of image: $img"
     fi
@@ -26,11 +26,12 @@ origs="${img_root}/origs"
 thumbs="${img_root}/thumbs"
 fulls="${img_root}/fulls"
 
-rm -rf "${thumbs}"
-rm -rf "${fulls}"
+rm -rf "$fulls" "$thumbs" "$origs"
+mkdir "$fulls" "$thumbs" "$origs"
 
-mkdir "${thumbs}"
-mkdir "${fulls}"
+echo "Export images to: $origs"
+printf "Then press any key to continue...\n"
+read -n 1 reply </dev/tty
 
 for img in "${origs}"/*
 do
