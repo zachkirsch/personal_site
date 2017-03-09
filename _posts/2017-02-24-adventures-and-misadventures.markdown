@@ -2,8 +2,7 @@
 layout: post
 title:  "Adventures and Misadventures"
 date:   2017-02-24 18:36:29 -0500
-categories:
-  - Abroad E-list
+categories: E-list
 ---
 
 Hello E-list!

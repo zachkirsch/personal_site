@@ -2,8 +2,7 @@
 layout: post
 title:  "Ciao from Milano!"
 date:   2017-01-15 20:35:41 -0500
-categories:
-  - Abroad E-list
+categories: E-list
 ---
 
 Hello family and friends,
