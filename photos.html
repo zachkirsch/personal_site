@@ -42,7 +42,7 @@ permalink: abroad/photos/
             {% assign dir = '/assets/portfolio/img/' %}
             {% assign fulls_dir = dir | append: 'fulls' %}
             {% assign thumbs_dir = dir | append: 'thumbs' %}
-            {% assign files = (site.static_files | sort: 'name') | reverse %}
+            {% assign files = (site.static_files | sort: 'name') %}
             {% for image in files %}
               {% if image.path contains fulls_dir %}
                 <article>
