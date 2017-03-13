@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
 #
 # process original (high res) images into thumbnails and "full size", which are
-# still good quality (1200x750) but manageably sized.
+# still good quality but manageably sized.
+#
+# TODO: this converts every picture in the background simultaneously, so while
+# it's running it hogs CPU like crazy.
 #
 # Zach Kirsch | March 2017
 
@@ -11,7 +14,7 @@ process_image() {
     if [[ ! -z "${date}" ]]; then
         filename="${date}.jpg"
         convert "$img" -auto-orient -thumbnail 400x "${thumbs}/${filename}"
-        convert "$img" -auto-orient -resize 1200x "${fulls}/${filename}"
+        convert "$img" -auto-orient -resize 2000x "${fulls}/${filename}"
         echo "☑️️  $filename"
     else
         echo "Error: could not determine date of image: $img"
