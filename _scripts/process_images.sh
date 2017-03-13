@@ -15,7 +15,7 @@ process_image() {
         filename="${date}.jpg"
         convert "$img" -auto-orient -thumbnail 400x400 "${thumbs}/${filename}"
         convert "$img" -auto-orient -resize 2000x2000 "${fulls}/${filename}"
-        echo "☑️️  $filename"
+        echo "resized: $filename"
     else
         echo "Error: could not determine date of image: $img"
     fi
@@ -24,7 +24,10 @@ process_image() {
 set -e # Exit on error
 set -m # Enable Job Control
 
-img_root="/Users/Zach/Documents/Developer/personal_site_2/assets/portfolio/img"
+site_root="/Users/Zach/Documents/Developer/personal_site_2"
+portfolio_root="${site_root}/assets/portfolio"
+img_root="${portfolio_root}/img"
+
 origs="${img_root}/origs"
 thumbs="${img_root}/thumbs"
 fulls="${img_root}/fulls"
@@ -42,3 +45,8 @@ do
 done
 
 wait
+
+cd "$img_root"
+mv "$fulls" portfolio/
+zip -r portfolio.zip portfolio
+mv portfolio/ "$fulls"
