@@ -30,3 +30,4 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - assets/portfolio/img/origs
+  - assets/portfolio/img/portfolio.zip
