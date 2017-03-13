@@ -48,7 +48,19 @@ permalink: abroad/photos/
                 <article>
                   {% assign full = fulls_dir | append: '/' | append: image.name %}
                   {% assign thumb = thumbs_dir | append: '/' | append: image.name  %}
-                  <a class="thumbnail" href="{{ full }}"><img src="{{ thumb }}"/></a>
+
+                  {% capture image_description %}
+                    {% exiftag image_description,{{fulls_dir}},{{image.name}} %}
+                  {% endcapture %}
+                  {% if image_description contains '[HIGHLIGHT]' %}
+                    {% assign image_description = image_description | replace:'[HIGHLIGHT]',''
+                                                             | strip %}
+                    {% assign extra_classes = 'highlight' %}
+                  {% else %}
+                    {% assign extra_classes = '' %}
+                  {% endif %}
+
+                  <a class="thumbnail {{extra_classes}}" href="{{ full }}"><img src="{{ thumb }}"/></a>
 
                   {% capture image_date %}
                     {% exiftag date_time,{{fulls_dir}},{{image.name}} %}
@@ -56,7 +68,7 @@ permalink: abroad/photos/
 
                   <p>
                     {{ image_date | date: '%-m/%-d/%y' }}.&nbsp;
-                    {% exiftag image_description,{{fulls_dir}},{{image.name}} %}
+                    {{ image_description }}
                   </p>
                 </article>
               {% endif %}
