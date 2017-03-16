@@ -631,7 +631,7 @@ dl {
   padding: 0 0.75em; }
   #thumbnails article {
     position: relative;
-    width: 25%;
+    width: 100%;
     background: white;
     outline: 0;
     margin: 0.2em 0em; }
@@ -641,13 +641,10 @@ dl {
       position: relative;
       border: 0;
       outline: 0;
-      height: 100%;
       margin: 0em 0.2em; }
       #thumbnails article .thumbnail img {
         display: block;
         width: 100%;
-        object-fit: cover;
-        height: 100%;
         outline: 1px solid lightgray; }
       #thumbnails article .thumbnail:before {
         -moz-pointer-events: none;
