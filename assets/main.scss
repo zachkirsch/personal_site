@@ -75,3 +75,48 @@ $on-laptop:        800px;
 .rss-subscribe {
     margin-top: 50px;
 }
+
+#abroad-photos {
+
+    div.container {
+        margin-left: 1em;
+    }
+
+    h4 {
+        margin-top: 3em;
+    }
+
+    p.instructions {
+        margin-top: 1em;
+        margin-bottom: 2em;
+    }
+
+    img {
+        max-width: 80%;
+        max-height: 80%;
+        border: 1px solid lightgray;
+    }
+    article {
+        margin-bottom: 5em;
+        border: 2px solid lightgray;
+        padding: 1em;
+    }
+    p {
+        margin-top: 1em;
+    }
+}
+
+a.back-to-top {
+    display: none;
+    width: 60px;
+    height: 60px;
+    text-indent: -9999px;
+    position: fixed;
+    z-index: 999;
+    right: 20px;
+    bottom: 20px;
+    background: #27AE61 url("/assets/up-arrow.png") no-repeat center 43%;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+}
