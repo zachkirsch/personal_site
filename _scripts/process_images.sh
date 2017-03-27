@@ -24,7 +24,7 @@ process_image() {
 set -e # Exit on error
 set -m # Enable Job Control
 
-site_root="/Users/Zach/Documents/Developer/personal_site_2"
+site_root="/Users/Zach/Documents/Developer/personal_site_3"
 portfolio_root="${site_root}/assets/portfolio"
 img_root="${portfolio_root}/img"
 
