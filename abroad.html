@@ -24,7 +24,7 @@ permalink: abroad/
 
   <div id="abroad-photos">
     <h4>Photos</h4>
-    <div class="container">
+    <ul class="container">
       <p class="instructions"><i>You can use the arrow keys to navigate.</i></p>
       {% assign dir = '/assets/portfolio/img/fulls' %}
       {% assign static_files = (site.static_files | sort: 'name') %}
@@ -47,17 +47,17 @@ permalink: abroad/
             {% exiftag date_time,{{dir}},{{image.name}} %}
           {% endcapture %}
 
-          <article data-date="{{ image_date }}">
+          <li data-date="{{ image_date }}">
             <img src="{{ path }}" alt="{{ image_description }}">
             <p>
               <span class="post-meta">{{ image_date | date: '%-m/%-d/%y' }}</span>
               &nbsp;
               <i> {{ image_description }} </i>
             </p>
-          </article>
+          </li>
         {% endif %}
       {% endfor %}
-    </div>
+    </ul>
   </div>
 
   <script src="https://use.fontawesome.com/6e84e1edd3.js"></script>
@@ -88,13 +88,18 @@ permalink: abroad/
       });
     });
   </script>
-
+  <script src="https://unpkg.com/imagesloaded@4.1/imagesloaded.pkgd.min.js"></script>
   <script type="text/javascript">
     $(document).ready(function() {
       var boxTops = [];
-      $('#abroad-photos article').each(function(i, el){
-          boxTops.push(this.offsetTop);
+      $('#abroad-photos ul').imagesLoaded( function() {
+        // images have loaded
+        $('#abroad-photos li').each(function(i, el){
+            boxTops.push(this.offsetTop);
+        });
+        console.log(boxTops)
       });
+
 
       $(document).keydown(function(e) {
         var dir = false,

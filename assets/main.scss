@@ -78,6 +78,10 @@ $on-laptop:        800px;
 
 #abroad-photos {
 
+    ul {
+        list-style-type: none;
+    }
+
     div.container {
         margin-left: 1em;
     }
@@ -96,7 +100,8 @@ $on-laptop:        800px;
         max-height: 80%;
         border: 1px solid lightgray;
     }
-    article {
+
+    li {
         margin-bottom: 5em;
         border: 2px solid lightgray;
         padding: 1em;
