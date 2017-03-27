@@ -13,7 +13,7 @@ process_image() {
     date=$(exiftool -s -s -s -d '%Y-%m-%d-%H-%M-%S' -DateTimeOriginal "$img")
     if [[ ! -z "${date}" ]]; then
         filename="${date}.jpg"
-        convert "$img" -auto-orient -thumbnail 400x400 "${thumbs}/${filename}"
+        convert "$img" -auto-orient -quality 1 -thumbnail 2000x2000 "${thumbs}/${filename}"
         convert "$img" -auto-orient -resize 2000x2000 "${fulls}/${filename}"
         echo "resized: $filename"
     else
@@ -32,8 +32,8 @@ origs="${img_root}/origs"
 thumbs="${img_root}/thumbs"
 fulls="${img_root}/fulls"
 
-rm -rf "$fulls" "$thumbs" "$origs"
-mkdir "$fulls" "$thumbs" "$origs"
+# rm -rf "$fulls" "$thumbs" "$origs"
+# mkdir "$fulls" "$thumbs" "$origs"
 
 echo "Export images to: $origs"
 printf "Then press any key to continue...\n"
