@@ -24,7 +24,7 @@ process_image() {
     date=$(exiftool -s -s -s -d '%Y-%m-%d-%H-%M-%S' -DateTimeOriginal "$img")
     if [[ ! -z "${date}" ]]; then
         filename="${date}.jpg"
-        convert "$img" -auto-orient -quality 1 -thumbnail 2000x2000 "${thumbs}/${filename}"
+        convert "$img" -strip -auto-orient -quality 1 -thumbnail 2000x2000 "${thumbs}/${filename}"
         convert "$img" -auto-orient -resize 2000x2000 "${fulls}/${filename}"
         # echo "resized: $filename"
     else
@@ -43,6 +43,7 @@ read -n 1 reply </dev/tty
 export -f process_image
 parallel --bar -j 5 "process_image {} ${thumbs} ${fulls}" ::: "${origs}"/*
 
+printf "Compressing portfolio..."
 cd "$img_root"
 mv "$fulls" portfolio/
 zip -qr portfolio.zip portfolio
