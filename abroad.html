@@ -38,12 +38,12 @@ permalink: abroad/
             {% capture image_description %}
               {% exiftag image_description,{{fulls_dir}},{{image.name}} %}
             {% endcapture %}
+
+            {% assign extra_classes = '' %}
             {% if image_description contains '[HIGHLIGHT]' %}
               {% assign image_description = image_description | replace:'[HIGHLIGHT]',''
                                                        | strip %}
               {% assign extra_classes = 'highlight' %}
-            {% else %}
-              {% assign extra_classes = '' %}
             {% endif %}
 
             {% capture image_date %}
@@ -55,11 +55,11 @@ permalink: abroad/
                 src="{{ thumb }}"
                 alt="{{ image_description }}"
                 data-src="{{ full }}"
-                class="lazyload blur-up" />
+                class="lazyload blur-up {{ extra_classes }}" />
               <p>
                 <span class="post-meta">{{ image_date | date: '%-m/%-d/%y' }}</span>
                 &nbsp;
-                <i> {{ image_description }} </i>
+                {{ image_description }}
               </p>
             </li>
         {% endif %}
@@ -69,75 +69,7 @@ permalink: abroad/
 
   <script src="https://use.fontawesome.com/6e84e1edd3.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script type="text/javascript">
-    $(document).ready(function() {
-      $('body').prepend('<a href="#" class="back-to-top">Back to Top</a>');
-
-      var amountScrolled = 300;
-
-      locked = false
-
-      $(window).scroll(function() {
-        if (! locked) {
-          locked = true
-          if ( $(window).scrollTop() > amountScrolled ) {
-            $('a.back-to-top').fadeIn('slow');
-          } else {
-            $('a.back-to-top').fadeOut('slow');
-          }
-          locked = false
-        }
-      });
-
-      $('a.back-to-top').click(function() {
-        window.scrollTo(0,0)
-        return false;
-      });
-    });
-  </script>
+  <script src="/assets/js/back-to-top.js"></script>
   <script src="https://unpkg.com/imagesloaded@4.1/imagesloaded.pkgd.min.js"></script>
-  <script type="text/javascript">
-    $(document).ready(function() {
-      var boxTops = [];
-      $('#abroad-photos ul').imagesLoaded( function() {
-        // images have loaded
-        $('#abroad-photos li').each(function(i, el){
-            boxTops.push(this.offsetTop);
-        });
-        console.log(boxTops)
-      });
-
-
-      $(document).keydown(function(e) {
-        var dir = false,
-        targetTop = -1;
-
-        switch (e.keyCode) {
-          case 37:
-          case 38:
-              dir = -1;
-              break;
-          case 39:
-          case 40:
-              dir = 1;
-              break;
-        }
-
-        if (dir) {
-            e.preventDefault();
-            margin = 25;
-            winTop = window.scrollY + margin;
-            $.each(boxTops, function(i, v){
-                if ((dir == 1 && winTop < v && targetTop < 0) ||
-                    (dir == -1 && winTop > v)) {
-                    targetTop = v;
-                }
-            });
-            if (targetTop >= 0) {
-                window.scrollTo(window.scrollX, targetTop - margin)
-            }
-        }
-      });
-    });
-  </script>
+  <script src="/assets/js/scroll-with-arrow-keys.js"></script>
   <script src="/assets/lazysizes.min.js" async=""></script>
