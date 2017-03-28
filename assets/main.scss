@@ -95,15 +95,25 @@ $on-laptop:        800px;
         margin-bottom: 2em;
     }
 
+    @media all and (max-width: 800px) {
+        p.instructions {
+            display: none;
+        }
+    }
+
     img {
         max-width: 80%;
         max-height: 80%;
-        border: 1px solid lightgray;
+        border: 1px;
+        border-style: solid;
+        border-color: lightgray;
     }
 
     li {
         margin-bottom: 5em;
-        border: 2px solid lightgray;
+        border: 2px;
+        border-style: solid;
+        border-color: lightgray;
         padding: 1em;
     }
     p {
