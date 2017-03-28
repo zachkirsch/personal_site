@@ -1,5 +1,4 @@
 var calculateScrollTopLocked = false
-
 function setScrollTops() {
   if (! calculateScrollTopLocked) {
     calculateScrollTopLocked = true
@@ -18,26 +17,44 @@ function setScrollTops() {
 }
 
 $(document).ready(function() {
-  setScrollTops()
-  $('#abroad-photos ul').imagesLoaded(setScrollTops)
+
+  /* only show loading message if it's been half a second and the images still
+   * haven't loaded */
+  var scrollTopsCalculated = false
+  setTimeout(function() {
+    if (!scrollTopsCalculated) {
+      $("#abroad-photos .loading").show()
+    }
+  }, 500);
+
+  $('#abroad-photos ul').imagesLoaded(function () {
+    $("#abroad-photos li").show()
+    $("#abroad-photos .loading").hide()
+    $("#abroad-photos .instructions").show()
+    setScrollTops()
+    scrollTopsCalculated = true
+  })
   window.onresize = setScrollTops
 
+  /* handle arrow keys to nagivate images.
+   * inspired by: http://stackoverflow.com/a/9827123
+   */
   $(document).keydown(function(e) {
-    var dir = false,
+    var dir = 0
     targetTop = -1;
 
     switch (e.keyCode) {
-      case 37:
-      case 38:
-          dir = -1;
+      case 37: /* left arrow */
+      case 38: /* up arrow */
+          dir = -1; /* user wants to move backwards */
           break;
-      case 39:
-      case 40:
-          dir = 1;
+      case 39: /* right arrow */
+      case 40: /* down arrow */
+          dir = 1; /* user wants to move forwards */
           break;
     }
 
-    if (dir) {
+    if (dir != 0) {
       e.preventDefault();
       winTop = window.scrollY;
       $('#abroad-photos li').each(function(i, elem) {

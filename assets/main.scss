@@ -93,6 +93,7 @@ $on-laptop:        800px;
     p.instructions {
         margin-top: 1em;
         margin-bottom: 2em;
+        display: none; /* start off hidden while photos are loading */
     }
 
     @media all and (max-width: 800px) {
@@ -115,9 +116,15 @@ $on-laptop:        800px;
         border-style: solid;
         border-color: lightgray;
         padding: 1em;
+        display: none; /* start off hidden while photos are loading */
     }
+
     p {
         margin-top: 1em;
+    }
+
+    p.loading {
+        display: none; /* start off hidden unless photos are slow to load */
     }
 
 }
@@ -146,4 +153,26 @@ a.back-to-top {
     -webkit-border-radius: 30px;
     -moz-border-radius: 30px;
     border-radius: 30px;
+}
+
+
+/* loading animation from https://codepen.io/thetallweeks/pen/yybGra */
+.loading:after {
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: bottom;
+  -webkit-animation: ellipsis steps(4,end) 900ms infinite;
+  animation: ellipsis steps(4,end) 900ms infinite;
+  content: "\2026"; /* ascii code for the ellipsis character */
+  width: 0px;
+}
+@keyframes ellipsis {
+  to {
+    width: 1.25em;
+  }
+}
+@-webkit-keyframes ellipsis {
+  to {
+    width: 1.25em;
+  }
 }
