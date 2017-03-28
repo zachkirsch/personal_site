@@ -53,7 +53,7 @@ permalink: abroad/
             <li data-date="{{ image_date }}">
               <img
                 src="{{ thumb }}"
-                alt="{{ image_description }}"
+                alt="{{ image_description | escape }}"
                 data-src="{{ full }}"
                 class="lazyload blur-up {{ extra_classes }}" />
               <p>
