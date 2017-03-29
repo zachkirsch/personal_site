@@ -76,6 +76,12 @@ $on-laptop:        800px;
     margin-top: 50px;
 }
 
+#abroad-background {
+    margin-bottom: 2em;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
 #abroad-photos {
 
     ul {
@@ -92,8 +98,14 @@ $on-laptop:        800px;
 
     p.instructions {
         margin-top: 1em;
-        margin-bottom: 2em;
-        display: none; /* start off hidden while photos are loading */
+    }
+
+    .loading {
+        display: none; /* start hidden unless photos take too long to load */
+    }
+
+    #photos {
+        margin-top: 2em;
     }
 
     @media all and (max-width: 800px) {
@@ -116,14 +128,13 @@ $on-laptop:        800px;
         border-style: solid;
         border-color: lightgray;
         padding: 1em;
-        display: none; /* start off hidden while photos are loading */
     }
 
     p {
         margin-top: 1em;
     }
 
-    p.loading {
+    .wait-for-images {
         display: none; /* start off hidden unless photos are slow to load */
     }
 
@@ -175,4 +186,27 @@ a.back-to-top {
   to {
     width: 1.25em;
   }
+}
+
+.select-style {
+    border: 1px solid #ccc;
+    width: 120px;
+    border-radius: 3px;
+    overflow: hidden;
+    background: #fafafa url("/assets/downward-triangle.png") no-repeat 90% 55%;
+    background-size: 9%;
+}
+
+.select-style select {
+    padding: 5px 8px;
+    width: 130%;
+    border: none;
+    box-shadow: none;
+    background: transparent;
+    background-image: none;
+    -webkit-appearance: none;
+}
+
+.select-style select:focus {
+    outline: none;
 }
