@@ -7,6 +7,10 @@
 # To use: run the script, and the export the high-res photos into the "origs"
 # folder
 #
+# To erase existing images and start from scratch, run:
+#   sh process_images scratch
+#
+#
 # Zach Kirsch | March 2017
 
 site_root="/Users/Zach/Documents/Developer/personal_site_3"
@@ -34,8 +38,12 @@ process_image() {
 
 set -e # Exit on error
 
-rm -rf "$fulls" "$thumbs" "$origs"
-mkdir "$fulls" "$thumbs" "$origs"
+rm -rf  "$origs"
+mkdir "$origs"
+if [[ "$1" == "scratch" ]];  then
+    rm -rf "$fulls" "$thumbs"
+    mkdir "$fulls" "$thumbs"
+fi
 
 printf "Export images to: $origs. Then press any key to continue...\n"
 read -n 1 reply </dev/tty
