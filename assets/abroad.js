@@ -1,3 +1,32 @@
+/* Floating back-to-top button */
+
+function backToTop() {
+  $('body').prepend('<a href="#" class="back-to-top">Back to Top</a>');
+
+  var amountScrolled = 300;
+
+  locked = false
+
+  $(window).scroll(function() {
+    if (! locked) {
+      locked = true
+      if ( $(window).scrollTop() > amountScrolled ) {
+        $('a.back-to-top').fadeIn('slow');
+      } else {
+        $('a.back-to-top').fadeOut('slow');
+      }
+      locked = false
+    }
+  });
+
+  $('a.back-to-top').click(function() {
+    window.scrollTo(0,0)
+    return false;
+  });
+}
+
+/* Scrolling through pics with arrow keys */
+
 var calculateScrollTopLocked = false
 function setScrollTops() {
   if (! calculateScrollTopLocked) {
@@ -16,25 +45,30 @@ function setScrollTops() {
   }
 }
 
-$(document).ready(function() {
-
+function scrollWithArrowKeys(_callback) {
   /* only show loading message if it's been half a second and the images still
    * haven't loaded */
-  var scrollTopsCalculated = false
+  var calculatedScrollTops = false
   setTimeout(function() {
-    if (!scrollTopsCalculated) {
+    if ( ! calculatedScrollTops) {
       $("#abroad-photos .loading").show()
     }
   }, 500);
 
   $('#abroad-photos ul').imagesLoaded(function () {
-    $("#abroad-photos li").show()
     $("#abroad-photos .loading").hide()
-    $("#abroad-photos .instructions").show()
+    $("#abroad-photos .wait-for-images").show()
     setScrollTops()
-    scrollTopsCalculated = true
+    calculatedScrollTops = true
+    _callback()
   })
-  window.onresize = setScrollTops
+
+  /* when done resizing window, setScrollTops */
+  var resizeId;
+  $(window).resize(function() {
+      clearTimeout(resizeId);
+      resizeId = setTimeout(setScrollTops, 500);
+  });
 
   /* handle arrow keys to nagivate images.
    * inspired by: http://stackoverflow.com/a/9827123
@@ -71,4 +105,26 @@ $(document).ready(function() {
       }
     }
   });
-});
+}
+
+function buildMonthSelect() {
+  months = new Set()
+  $("#abroad-photos li").each(function(i, elem) {
+    date = Date.parse($(elem).data('date'))
+    date_str = date.getMonthName() + " " + date.getFullYear()
+    if (! months.has(date_str)) {
+      months.add(date_str)
+      scrollTop = $(elem).data('scrollTop')
+      html = '<option value=' + scrollTop + '>' + date_str + '</option'
+      $("#jump-to-month").append(html)
+    }
+  })
+}
+
+
+/* main program */
+
+$(document).ready(function() {
+  backToTop()
+  scrollWithArrowKeys(buildMonthSelect)
+})
