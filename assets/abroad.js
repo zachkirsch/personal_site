@@ -48,20 +48,28 @@ function setScrollTops() {
 function scrollWithArrowKeys(_callback) {
   /* only show loading message if it's been half a second and the images still
    * haven't loaded */
-  var calculatedScrollTops = false
+  var loadedImages = false
   setTimeout(function() {
-    if ( ! calculatedScrollTops) {
+    if ( ! loadedImages) {
       $("#abroad-photos .loading").show()
+      var numDots = 0;
+      setInterval(function(){
+        numDots++;
+        html = "Loading" + new Array((numDots % 4) + 1).join('.')
+        $("#abroad-photos .loading i").html(html)
+      }, 500);
     }
   }, 500);
 
+  setTimeout(function() {
   $('#abroad-photos ul').imagesLoaded(function () {
     $("#abroad-photos .loading").hide()
     $("#abroad-photos .wait-for-images").show()
     setScrollTops()
-    calculatedScrollTops = true
+    loadedImages = true
     _callback()
   })
+  }, 5000)
 
   /* when done resizing window, setScrollTops */
   var resizeId;
@@ -115,7 +123,7 @@ function buildMonthSelect() {
     if (! months.has(date_str)) {
       months.add(date_str)
       scrollTop = $(elem).data('scrollTop')
-      html = '<option value=' + scrollTop + '>' + date_str + '</option'
+      html = '<option value=' + scrollTop + '>' + date_str + '</option>'
       $("#jump-to-month").append(html)
     }
   })
