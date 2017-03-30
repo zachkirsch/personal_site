@@ -53,7 +53,7 @@ process_image() {
 
 ## USAGE
 
-if [[ "$1" -eq "$help_option" ]]; then
+if [[ "$1" == "$help_option" ]]; then
 cat << EOF
 usage:
     sh $0 | when prompted, export the high-res photos into origs directory
@@ -86,5 +86,5 @@ parallel --bar -j MAX_PROC \
 printf "Compressing portfolio...\n"
 cd "$img_root"
 mv "$fulls" portfolio/
-zip -qr portfolio.zip portfolio
+zip -dqr portfolio.zip portfolio
 mv portfolio/ "$fulls"
