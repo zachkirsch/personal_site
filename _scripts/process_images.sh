@@ -80,7 +80,7 @@ read -n 1 reply </dev/tty
 
 export -f process_image
 MAX_PROC=5
-parallel --bar -j MAX_PROC \
+parallel --bar -j $MAX_PROC \
     "process_image {} ${thumbs} ${fulls}" ::: "${origs}"/*
 
 printf "Compressing portfolio...\n"
