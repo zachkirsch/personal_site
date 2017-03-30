@@ -5,7 +5,7 @@ nav_bar_index: 1
 ---
 <div id="home">
 
-  <img id="profile" src="assets/me.png" alt="profile">
+  <img id="profile" src="{{ "/assets/me.png" | relative_url }}" alt="profile">
 
   <h2>Hi!</h2>
 
@@ -19,15 +19,18 @@ nav_bar_index: 1
   interested in the theoretical side of computer science. There's a few courses
   I've especially enjoyed: <i>Computation Theory</i> with Ben Hescott,
   <i>Algorithms</i> with Greg Aloupis, and <i>Computer Systems Security</i>
-  with Ming Chow, in which I <a href="/assets/quantum_risk.pdf" target="_blank">wrote</a>
+  with Ming Chow, in which I
+  <a href="{{ "/assets/quantum_risk.pdf" | relative_url }}" target="_blank">
+    wrote
+  </a>
   about encryption methods that are vulnerable to quantum computing. I'm
   planning on doing a senior thesis next year, but am still deciding on a
   topic.
 
   <p>Last semester, I TA'ed <i>Introduction to Computer Science</i> and
-  <i>Computation Theory</i> and had a great time with both. I like the challenge
-  of explaining new and difficult concepts to students in a way that gets them
-  excited about computer science.
+  <i>Computation Theory</i> and had a great time with both. I like the
+  challenge of explaining new and difficult concepts to students in a way that
+  gets them excited about computer science.
 
   <h2>Outside of school...</h2>
 
@@ -63,8 +66,9 @@ nav_bar_index: 1
   for relationship-based querying. This summer I'll be at Palantir Technologies
   in Washington, D.C.</p>
 
-  <p>You can find me on <a href="https://github.com/zachkirsch" target="_blank">Github</a>
-  , or feel free to shoot me an email:
+  <p>You can find me on
+  <a href="https://github.com/zachkirsch" target="_blank">Github</a>,
+  or feel free to shoot me an email:
   <span class="nowrap"><i>&lt;my first name&gt;</i>@zachkirsch.com.</span>
 
 </div>

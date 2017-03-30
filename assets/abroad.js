@@ -32,12 +32,12 @@ function setScrollTops() {
   if (! calculateScrollTopLocked) {
     calculateScrollTopLocked = true
     $('#abroad-photos li').each(function(i, v) {
-      /* distance to scroll to this img is offsetTop
-       * MINUS half the leftover space at the bottom (distance
-       * from bottom of image to bottom of screen) in order to
-       * center it */
+      /* distance to scroll to this img is offsetTop MINUS half the leftover
+       * space at the bottom (distance from bottom of image to bottom of
+       * screen) in order to center it */
       scrollTop = this.offsetTop
-      scrollTop -= Math.max(0, ($(window).height() - $(this).outerHeight())/2)
+      leftoverSpace = ($(window).height() - $(this).outerHeight()) / 2
+      scrollTop -= Math.max(0, leftoverSpace)
       scrollTop = Math.floor(scrollTop)
       $(this).data('scrollTop', scrollTop)
     });
@@ -52,6 +52,12 @@ function scrollWithArrowKeys(_callback) {
   setTimeout(function() {
     if ( ! loadedImages) {
       $("#abroad-photos .loading").show()
+
+      /* animate the ellipsis in Loading -> Loading.
+       *                                 -> Loading..
+       *                                 -> Loading...
+       *                                 -> Loading
+       */
       var numDots = 0;
       setInterval(function(){
         numDots++;
@@ -61,15 +67,13 @@ function scrollWithArrowKeys(_callback) {
     }
   }, 500);
 
-  setTimeout(function() {
   $('#abroad-photos ul').imagesLoaded(function () {
+    loadedImages = true
     $("#abroad-photos .loading").hide()
     $("#abroad-photos .wait-for-images").show()
     setScrollTops()
-    loadedImages = true
     _callback()
   })
-  }, 5000)
 
   /* when done resizing window, setScrollTops */
   var resizeId;
@@ -114,6 +118,8 @@ function scrollWithArrowKeys(_callback) {
     }
   });
 }
+
+/* build "jump to month" select */
 
 function buildMonthSelect() {
   months = new Set()
