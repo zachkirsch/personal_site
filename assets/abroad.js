@@ -48,9 +48,9 @@ function setScrollTops() {
 function scrollWithArrowKeys(_callback) {
   /* only show loading message if it's been half a second and the images still
    * haven't loaded */
-  var loadedImages = false
+  var imagesAreLoaded = false
   setTimeout(function() {
-    if ( ! loadedImages) {
+    if ( ! imagesAreLoaded) {
       $("#abroad-photos .loading").show()
 
       /* animate the ellipsis in Loading -> Loading.
@@ -67,13 +67,15 @@ function scrollWithArrowKeys(_callback) {
     }
   }, 500);
 
-  $('#abroad-photos ul').imagesLoaded(function () {
-    loadedImages = true
+  function loadedImages() {
+    imagesAreLoaded = true
     $("#abroad-photos .loading").hide()
     $("#abroad-photos .wait-for-images").show()
     setScrollTops()
     _callback()
-  })
+  }
+
+  $('#abroad-photos ul').imagesLoaded(loadedImages)
 
   /* when done resizing window, setScrollTops */
   var resizeId;
