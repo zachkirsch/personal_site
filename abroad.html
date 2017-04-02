@@ -32,8 +32,8 @@ permalink: abroad/
 
   <div id="abroad-photos">
     <h4>Photos</h4>
-    <ul class="container">
-      <p class="loading"><i>Loading...</i></p>
+    <div class="container">
+      <p class="loading"><i>Loading</i></p>
       <p class="instructions wait-for-images">
         <i>You can use the arrow keys to navigate.</i>
       </p>
@@ -43,7 +43,7 @@ permalink: abroad/
           <option selected disabled>Jump to Month</option>
         </select>
       </div>
-      <div id="photos">
+      <ul id="photos">
         {% assign dir = '/assets/portfolio/img/' %}
         {% assign fulls_dir = dir | append: 'fulls' %}
         {% assign thumbs_dir = dir | append: 'thumbs' %}
@@ -56,7 +56,7 @@ permalink: abroad/
                                            | append: image.name %}
 
               {% capture image_desc %}
-                {% exiftag image_desc,{{fulls_dir}},{{image.name}} %}
+                {% exiftag image_description,{{fulls_dir}},{{image.name}} %}
               {% endcapture %}
 
               {% assign extra_classes = '' %}
@@ -90,12 +90,11 @@ permalink: abroad/
     </ul>
   </div>
 
-  <script src="https://use.fontawesome.com/6e84e1edd3.js"></script>
   <script
-    src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    src="{{ "/assets/jquery.min.js" | relative_url }}">
   </script>
   <script
-    src="https://unpkg.com/imagesloaded@4.1/imagesloaded.pkgd.min.js">
+    src="{{ "/assets/imagesloaded.pkgd.min.js" | relative_url }}">
   </script>
   <script
     src="{{ "/assets/lazysizes.min.js" | relative_url }}" async="">
