@@ -70,16 +70,20 @@ permalink: abroad/
                 {% exiftag date_time,{{fulls_dir}},{{image.name}} %}
               {% endcapture %}
 
+              {% capture image_lat %}{% exiftag gps.latitude,{{fulls_dir}},{{image.name}} %}{% endcapture %}
+              {% capture image_lng %}{% exiftag gps.longitude,{{fulls_dir}},{{image.name}} %}{% endcapture %}
+              {% assign coords = {{image_lat}} | append: ',' | append: {{image_lng}} %}
+
               <li data-date="{{ image_date }}" class="wait-for-images">
                 <img
                   src="{{ thumb }}"
                   alt="{{ image_desc | escape }}"
                   data-src="{{ full }}"
                   class="lazyload blur-up {{ extra_classes }}" />
-                <p>
-                  <span class="post-meta">
-                    {{ image_date | date: '%-m/%-d/%y' }}
-                  </span>
+                  <a href="https://www.google.com/maps?q={{ coords }}"
+                       target="_blank"
+                       class="geo-link">
+                    <span class="post-meta">{{ image_date | date: '%-m/%-d/%y' }}</span></a>
                   &nbsp;
                   {{ image_desc }}
                 </p>
