@@ -37,11 +37,16 @@ permalink: abroad/
       <p class="instructions wait-for-images">
         <i>You can use the arrow keys to navigate.</i>
       </p>
-      <div class="select-style wait-for-images">
-        <select id="jump-to-month"
-                onchange="window.scrollTo(window.scrollX, this.value)">
-          <option selected disabled>Jump to Month</option>
-        </select>
+      <div id="buttons" class="wait-for-images">
+        <div class="select-style button-style">
+          <select id="jump-to-month"
+                  onchange="window.scrollTo(window.scrollX, this.value)">
+            <option selected disabled>Jump to Month</option>
+          </select>
+        </div>
+        <div class="button-style">
+          <button id="toggle-highlights"></button>
+        </div>
       </div>
       <ul id="photos">
         {% assign dir = '/assets/portfolio/img/' %}
@@ -74,12 +79,13 @@ permalink: abroad/
               {% capture image_lng %}{% exiftag gps.longitude,{{fulls_dir}},{{image.name}} %}{% endcapture %}
               {% assign coords = {{image_lat}} | append: ',' | append: {{image_lng}} %}
 
-              <li data-date="{{ image_date }}" class="wait-for-images">
+              <li data-date="{{ image_date }}"
+                  class="wait-for-images {{extra_classes}}">
                 <img
                   src="{{ thumb }}"
                   alt="{{ image_desc | escape }}"
                   data-src="{{ full }}"
-                  class="lazyload blur-up {{ extra_classes }}" />
+                  class="lazyload blur-up" />
                   <a href="https://www.google.com/maps?q={{ coords }}"
                        target="_blank"
                        class="geo-link">

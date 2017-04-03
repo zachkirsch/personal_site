@@ -138,9 +138,30 @@ function buildMonthSelect() {
 }
 
 
+/* highlights toggle-button */
+
+function setupToggleHighlights() {
+  $("#toggle-highlights").data("showing-all", true)
+  $("#toggle-highlights").text("Show Highlights")
+
+  $("#toggle-highlights").click(function (){
+    var showing_all = $(this).data("showing-all")
+    if (showing_all) {
+      $("#toggle-highlights").text("Show All")
+    } else {
+      $("#toggle-highlights").text("Show Highlights")
+    }
+    $("ul#photos li:not(.highlight)").toggle()
+    $(this).data("showing-all", !showing_all)
+  })
+
+}
+
+
 /* main program */
 
 $(document).ready(function() {
   backToTop()
+  setupToggleHighlights()
   scrollWithArrowKeys(buildMonthSelect)
 })
