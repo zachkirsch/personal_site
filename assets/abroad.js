@@ -31,7 +31,7 @@ var calculateScrollTopLocked = false
 function setScrollTops() {
   if (! calculateScrollTopLocked) {
     calculateScrollTopLocked = true
-    $('#abroad-photos li').each(function(i, v) {
+    $('#abroad-photos li:visible').each(function(i, v) {
       /* distance to scroll to this img is offsetTop MINUS half the leftover
        * space at the bottom (distance from bottom of image to bottom of
        * screen) in order to center it */
@@ -44,6 +44,33 @@ function setScrollTops() {
     calculateScrollTopLocked = false
   }
 }
+
+
+/* for focusing images */
+
+dontResetFocused = false;
+function setNoneFocused() {
+  if (!dontResetFocused) {
+    $("#abroad-photos li.focused").removeClass('focused')
+  }
+}
+$(window).scroll(function() {
+  if ($('#abroad-photos li.focused').length > 0) {
+    setNoneFocused()
+  }
+})
+
+
+/* given an element, scroll to that element and focus on it */
+function scrollToImage(elemToJumpTo) {
+  scrollTop = $(elemToJumpTo).data('scrollTop')
+  setNoneFocused();
+  dontResetFocused = true
+  $(elemToJumpTo).addClass('focused')
+  window.scrollTo(window.scrollX, scrollTop)
+  setTimeout(function() { dontResetFocused = false }, 100)
+}
+
 
 function scrollWithArrowKeys(_callback) {
   /* only show loading message if it's been half a second and the images still
@@ -77,6 +104,7 @@ function scrollWithArrowKeys(_callback) {
 
   $('#abroad-photos ul').imagesLoaded(loadedImages)
 
+
   /* when done resizing window, setScrollTops */
   var resizeId;
   $(window).resize(function() {
@@ -104,18 +132,20 @@ function scrollWithArrowKeys(_callback) {
 
     if (dir != 0) {
       e.preventDefault();
-      winTop = window.scrollY;
-      $('#abroad-photos li').each(function(i, elem) {
+      var winTop = window.scrollY;
+      var elemToJumpTo;
+      $('#abroad-photos li:visible').each(function(i, elem) {
         scrollTop = $(elem).data('scrollTop')
         if ((dir == 1 && winTop < scrollTop && targetTop < 0) ||
-          (dir == -1 && winTop > scrollTop)) {
+            (dir == -1 && winTop > scrollTop)) {
           targetTop = scrollTop;
+          elemToJumpTo = elem;
         }
       })
       if (targetTop >= 0) {
-        window.scrollTo(window.scrollX, targetTop)
+        scrollToImage(elemToJumpTo)
       } else if (dir == -1) {
-        window.scrollTo(0,0)
+        window.scrollTo(window.scrollX, 0)
       }
     }
   });
@@ -124,18 +154,26 @@ function scrollWithArrowKeys(_callback) {
 /* build "jump to month" select */
 
 function buildMonthSelect() {
+  $("#jump-to-month .month").remove()
   months = new Set()
-  $("#abroad-photos li").each(function(i, elem) {
+  $("#abroad-photos li:visible").each(function(i, elem) {
     date = Date.parse($(elem).data('date'))
     date_str = date.getMonthName() + " " + date.getFullYear()
     if (! months.has(date_str)) {
       months.add(date_str)
-      scrollTop = $(elem).data('scrollTop')
-      html = '<option value=' + scrollTop + '>' + date_str + '</option>'
-      $("#jump-to-month").append(html)
+      var o = new Option(date_str, "");
+      $(o).html(date_str)
+      $(o).addClass("month")
+      $(o).data("scrollTo", elem)
+      $("#jump-to-month").append(o)
     }
   })
 }
+
+$("#jump-to-month").change(function() {
+  scrollToImage($(this).find(":selected").data('scrollTo'))
+  $("#jump-to-month")[0].selectedIndex = 0;
+})
 
 
 /* highlights toggle-button */
@@ -153,6 +191,8 @@ function setupToggleHighlights() {
     }
     $("ul#photos li:not(.highlight)").toggle()
     $(this).data("showing-all", !showing_all)
+    setScrollTops()
+    buildMonthSelect()
   })
 
 }
