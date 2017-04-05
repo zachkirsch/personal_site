@@ -71,7 +71,7 @@ set -e # Exit on error
 rm -rf  "$origs"
 mkdir "$origs"
 if [[ "$1" == "$scratch_option" ]];  then
-    printf "Starting from scratch: erasing existing images..."
+    printf "Starting from scratch: erasing existing images...\n"
     rm -rf "$fulls" "$thumbs"
     mkdir "$fulls" "$thumbs"
 fi
