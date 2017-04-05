@@ -71,6 +71,7 @@ set -e # Exit on error
 rm -rf  "$origs"
 mkdir "$origs"
 if [[ "$1" == "$scratch_option" ]];  then
+    printf "Starting from scratch: erasing existing images..."
     rm -rf "$fulls" "$thumbs"
     mkdir "$fulls" "$thumbs"
 fi
@@ -86,5 +87,6 @@ parallel --bar -j $MAX_PROC \
 printf "Compressing portfolio...\n"
 cd "$img_root"
 mv "$fulls" portfolio/
-zip -dqr portfolio.zip portfolio
+rm portfolio.zip
+zip -qr portfolio.zip portfolio
 mv portfolio/ "$fulls"
