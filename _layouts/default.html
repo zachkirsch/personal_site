@@ -18,4 +18,13 @@
     {% endif %}
   </body>
 
+  {% if page.custom_js %}
+    {% for js_file in page.custom_js %}
+      <script
+        type="text/javascript"
+        src="{{ "/assets/" | append: js_file | append: ".js" | relative_url }}">
+      </script>
+    {% endfor %}
+  {% endif %}
+
 </html>

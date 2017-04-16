@@ -5,6 +5,15 @@ nav_bar_index: 2
 layout: page
 blog_index: true
 permalink: abroad/
+custom_css:
+  - magnific-popup
+custom_js:
+  - jquery.min
+  - imagesloaded.pkgd.min
+  - lazysizes.min
+  - date-en-US.min
+  - abroad
+  - magnific-popup.min
 ---
 
   <p id="abroad-background">
@@ -80,11 +89,13 @@ permalink: abroad/
 
               <li data-date="{{ image_date }}"
                   class="wait-for-images {{extra_classes}}">
-                <img
-                  src="{{ thumb }}"
-                  alt="{{ image_desc | escape }}"
-                  data-src="{{ full }}"
-                  class="lazyload blur-up" />
+                <a href="{{ full }}" class="photo-link">
+                  <img
+                    src="{{ thumb }}"
+                    alt="{{ image_desc | escape }}"
+                    data-src="{{ full }}"
+                    class="lazyload blur-up" />
+                </a>
                 <p>
                   <a href="https://www.google.com/maps?q={{ coords }}"
                        target="_blank"
@@ -99,18 +110,3 @@ permalink: abroad/
       </div>
     </ul>
   </div>
-
-  <script
-    src="{{ "/assets/jquery.min.js" | relative_url }}">
-  </script>
-  <script
-    src="{{ "/assets/imagesloaded.pkgd.min.js" | relative_url }}">
-  </script>
-  <script
-    src="{{ "/assets/lazysizes.min.js" | relative_url }}" async="">
-  </script>
-  <script
-    type="text/javascript"
-    src="{{ "/assets/date-en-US.js" | relative_url }}">
-  </script>
-  <script src="{{ "/assets/abroad.js" | relative_url }}"></script>
