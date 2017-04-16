@@ -121,11 +121,9 @@ function scrollWithArrowKeys(_callback) {
 
     switch (e.keyCode) {
       case 37: /* left arrow */
-      case 38: /* up arrow */
           dir = -1; /* user wants to move backwards */
           break;
       case 39: /* right arrow */
-      case 40: /* down arrow */
           dir = 1; /* user wants to move forwards */
           break;
     }
@@ -198,9 +196,8 @@ function setupToggleHighlights() {
 }
 
 
-/* main program */
-
-$(document).ready(function() {
+/* magnific-popup setup */
+function setupMagnificPopup() {
 
   $('#photos .photo-link').magnificPopup({
     type: 'image',
@@ -208,10 +205,20 @@ $(document).ready(function() {
       enabled:true
     },
     image: {
-       cursor: null
+      cursor: null,
+      titleSrc: function(elem) {
+        return $(elem.el).next("p").html()
+      }
     }
   });
 
+}
+
+
+/* main program */
+
+$(document).ready(function() {
+  setupMagnificPopup()
   backToTop()
   setupToggleHighlights()
   scrollWithArrowKeys(buildMonthSelect)
