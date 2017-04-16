@@ -201,6 +201,17 @@ function setupToggleHighlights() {
 /* main program */
 
 $(document).ready(function() {
+
+  $('#photos .photo-link').magnificPopup({
+    type: 'image',
+    gallery: {
+      enabled:true
+    },
+    image: {
+       cursor: null
+    }
+  });
+
   backToTop()
   setupToggleHighlights()
   scrollWithArrowKeys(buildMonthSelect)
