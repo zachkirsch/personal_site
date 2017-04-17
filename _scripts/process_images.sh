@@ -37,14 +37,14 @@ process_image() {
         convert "$img" -strip               \
                        -auto-orient         \
                        -quality 10          \
-                       -thumbnail 1200x1200 \
+                       -thumbnail 2000x2000 \
                        -blur 20x20          \
                 "${thumbs}/${filename}"
 
         # full image
         convert "$img" -auto-orient      \
-                       -quality 90       \
-                       -resize 1200x1200 \
+                       -quality 92       \
+                       -resize 2000x2000 \
                 "${fulls}/${filename}"
     else
         echo "Error: could not determine date of image: $img"
