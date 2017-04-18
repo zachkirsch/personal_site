@@ -29,9 +29,10 @@ process_image() {
     img="$1"
     thumbs="$2"
     fulls="$3"
+    uuid="$4"
     date=$(exiftool -s -s -s -d '%Y-%m-%d-%H-%M-%S' -DateTimeOriginal "$img")
     if [[ ! -z "${date}" ]]; then
-        filename="${date}.jpg"
+        filename="${date}-${4}.jpg"
 
         # thumbnail
         convert "$img" -strip               \
@@ -82,7 +83,7 @@ read -n 1 reply </dev/tty
 export -f process_image
 MAX_PROC=5
 parallel --bar -j $MAX_PROC \
-    "process_image {} ${thumbs} ${fulls}" ::: "${origs}"/*
+    "process_image {} ${thumbs} ${fulls} {#}" ::: "${origs}"/*
 
 printf "Compressing portfolio...\n"
 cd "$img_root"
