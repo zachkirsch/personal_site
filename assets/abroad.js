@@ -170,7 +170,8 @@ function buildMonthSelect() {
 
 $("#jump-to-month").change(function() {
   scrollToImage($(this).find(":selected").data('scrollTo'))
-  $("#jump-to-month")[0].selectedIndex = 0;
+  $(this)[0].selectedIndex = 0;
+  $(this).blur()
 })
 
 
