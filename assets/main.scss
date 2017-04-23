@@ -145,6 +145,22 @@ $on-laptop:        800px;
     #buttons div {
         display: inline-block;
     }
+
+    .geo-link {
+        text-decoration: none;
+
+        .post-meta {
+            text-decoration: underline;
+        }
+    }
+
+    .camera-info {
+        cursor: default;
+    }
+}
+
+.mfp-gallery .camera-info {
+    display: none;
 }
 
 .blur-up {
@@ -210,12 +226,4 @@ button {
 
 .nowrap {
     white-space: nowrap;
-}
-
-.geo-link .post-meta {
-    text-decoration: underline;
-}
-
-.geo-link {
-    text-decoration: none;
 }

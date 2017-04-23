@@ -216,9 +216,19 @@ function setupMagnificPopup() {
 }
 
 
+/* tooltips for details of shot */
+function setupTooltipsForCameraInfo() {
+  $(".camera-info").tooltipster({
+    delay: 0,
+    theme: 'tooltipster-light'
+  })
+}
+
+
 /* main program */
 
 $(document).ready(function() {
+  setupTooltipsForCameraInfo()
   setupMagnificPopup()
   backToTop()
   setupToggleHighlights()
