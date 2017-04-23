@@ -7,8 +7,6 @@ blog_index: true
 permalink: abroad/
 custom_css:
   - magnific-popup
-  - tooltipster/css/tooltipster.bundle.min
-  - tooltipster/css/tooltipster-sideTip-light.min
 custom_js:
   - jquery.min
   - imagesloaded.pkgd.min
@@ -16,7 +14,6 @@ custom_js:
   - date-en-US.min
   - abroad
   - magnific-popup.min
-  - tooltipster/js/tooltipster.bundle.min
 ---
 
   <p id="abroad-background">
@@ -86,11 +83,6 @@ custom_js:
                 {% exiftag date_time,{{fulls_dir}},{{image.name}} %}
               {% endcapture %}
 
-              {% capture camera_model %}
-                {% exiftag model,{{fulls_dir}},{{image.name}} %}
-              {% endcapture %}
-              {% assign camera_model = camera_model | strip %}
-
               {% capture image_lat %}{% exiftag gps.latitude,{{fulls_dir}},{{image.name}} %}{% endcapture %}
               {% capture image_lng %}{% exiftag gps.longitude,{{fulls_dir}},{{image.name}} %}{% endcapture %}
               {% assign coords = {{image_lat}} | append: ',' | append: {{image_lng}} %}
@@ -110,14 +102,6 @@ custom_js:
                        class="geo-link">
                     <span class="post-meta">{{ image_date | date: '%-m/%-d/%y' }}</span></a>
                   &nbsp;
-                  <!-- camera emoji for shot details in tooltip-->
-                  {% if camera_model != "" %}
-                    <span class="camera-info"
-                          title="{{ camera_model }}">
-                      &#x1f4f7;
-                    </span>
-                    &nbsp;
-                  {% endif %}
                   {{ image_desc }}
                 </p>
               </li>
