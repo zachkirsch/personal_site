@@ -78,8 +78,6 @@ function scrollWithArrowKeys(_callback) {
   var imagesAreLoaded = false
   setTimeout(function() {
     if ( ! imagesAreLoaded) {
-      $("#abroad-photos .loading").show()
-
       /* animate the ellipsis in Loading -> Loading.
        *                                 -> Loading..
        *                                 -> Loading...
