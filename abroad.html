@@ -1,6 +1,6 @@
 ---
 title: Study Abroad
-nav_bar_title: Abroad
+nav_bar_title: Study Abroad
 nav_bar_index: 2
 layout: page
 blog_index: true
@@ -17,11 +17,11 @@ custom_js:
 ---
 
   <p id="abroad-background">
-    During the spring semester of my junior year, I am studying abroad in
-    Milan, Italy. Academically, I took a break from computer science and am
-    studying Italian, art history, and photography. On the weekends, I'm
-    traveling to a lot of new places with friends and family. Take a look at
-    some of my adventures below!
+    During the spring semester of my junior year, I studied abroad in Milan,
+    Italy. Academically, I took a break from computer science and studied
+    Italian, art history, and photography. On the weekends, I traveled to a lot
+    of new places with friends and family. Take a look at some of my adventures
+    below!
   </p>
 
   {% assign sorted_posts = site.categories["E-list"] | reversed %}
@@ -78,8 +78,7 @@ custom_js:
                                                   | strip %}
                 {% assign extra_classes = 'highlight' %}
               {% endif %}
-
-              {% capture image_date %}
+{% capture image_date %}
                 {% exiftag date_time,{{fulls_dir}},{{image.name}} %}
               {% endcapture %}
 
