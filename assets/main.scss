@@ -206,10 +206,10 @@ button {
     top: 0;
     width: 100%;
     background: white;  // set a color to hide content that may appear below masthead
-    height: 50px; // need a magic number here which may break in different viewports
+    height: 56px; // need a magic number here which may break in different viewports
     z-index: 20;
 }
 
 body {
-    padding: 50px 0 0;
+    padding: 56px 0 0;
 }

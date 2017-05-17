@@ -1,4 +1,5 @@
-/* Floating back-to-top button */
+
+var headerHeight = $(".site-header").outerHeight();
 
 /* Scrolling through pics with arrow keys */
 
@@ -11,8 +12,12 @@ function setScrollTops() {
        * space at the bottom (distance from bottom of image to bottom of
        * screen) in order to center it */
       scrollTop = this.offsetTop
-      leftoverSpace = ($(window).height() - $(this).outerHeight()) / 2
-      scrollTop -= Math.max(0, leftoverSpace)
+      leftoverSpace = ($(window).height()    -
+                       $(this).outerHeight() -
+                       headerHeight)
+      extraSpaceForTop = leftoverSpace / 2
+      scrollTop -= Math.max(0, extraSpaceForTop)
+      scrollTop -= headerHeight // leave room for sticky header
       scrollTop = Math.floor(scrollTop)
       $(this).data('scrollTop', scrollTop)
     });
