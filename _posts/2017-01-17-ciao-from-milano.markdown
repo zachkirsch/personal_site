@@ -2,7 +2,8 @@
 layout: post
 title:  "Ciao from Milano!"
 date:   2017-01-15 20:35:41 -0500
-categories: E-list
+categories:
+    - Abroad Update
 ---
 
 Hello family and friends,
@@ -68,4 +69,4 @@ of different places over the next few months, and if you have any suggestions,
 feel free to throw them my way. And if you find yourself in the Milan area,
 let me know!
 
-Thanks for reading this essay of an email. Ciao!
+Thanks for reading this essay. Ciao!

@@ -2,15 +2,16 @@
 layout: post
 title:  "Ciao (the goodbye one) from Milano!"
 date:   2017-05-08 07:46:25 -0400
-categories: E-list
+categories:
+    - Abroad Update
 ---
 
 Hello!
 
-First off, sorry for the 10-week hiatus on the emails. I'm leaving Milan in a
-few days, so I figure I should send one last update before I go.
+First off, sorry for the 10-week hiatus. I'm leaving Milan in a few days, so I
+figure I should send one last update before I go.
 
-Since my last email, I've done a lot of traveling: Athens, Vienna, Budapest,
+Since my last update, I've done a lot of traveling: Athens, Vienna, Budapest,
 Madrd, Norway (Oslo, Bergen, Tromsø), Paris, Venice, Rome, Florence, Cairo,
 Marrakech, Lisbon, and the Amalfi Coast. To not bore you, I'll focus on the
 highlights.

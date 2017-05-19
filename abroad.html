@@ -24,8 +24,8 @@ custom_js:
     below!
   </p>
 
-  {% assign sorted_posts = site.categories["E-list"] | reversed %}
-  <h4>E-list Updates</h4>
+  {% assign sorted_posts = site.categories["Abroad Update"] | sort: 'date' %}
+  <h4>Updates</h4>
   <ul class="post-list">
     {% for post in sorted_posts %}
       <li>

@@ -2,15 +2,14 @@
 layout: post
 title:  "Adventures and Misadventures"
 date:   2017-02-24 18:36:29 -0500
-categories: E-list
+categories:
+    - Abroad Update
 ---
 
-Hello E-list!
+Hello!
 
 It's been almost 7 weeks since I've arrived in Milan, so I think it's about
-time I give you another update. I am happy to report that only one person has
-requested to be taken off the e-list, and to spite him, I am emailing this
-update to him twice. (Sorry Ron).
+time I give you another update.
 
 To sum up my abroad experience so far in one word: new. I am learning a new
 language, meeting new people, trying new foods, visiting new places, and doing
