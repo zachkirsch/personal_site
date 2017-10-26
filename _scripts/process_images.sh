@@ -13,7 +13,7 @@
 
 help_option="-h"
 
-site_root="/Users/Zach/Documents/Developer/personal_site"
+site_root="/Users/Zach/Documents/Developer/personal_site/personal_site"
 portfolio_root="${site_root}/assets/portfolio"
 img_root="${portfolio_root}/img"
 
