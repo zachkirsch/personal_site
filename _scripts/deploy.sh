@@ -7,7 +7,7 @@ site_root=/Users/Zach/Documents/Developer/personal_site
 jekyll_source=$site_root/jekyll_site
 jekyll_static_site=$jekyll_source/_site
 comp_150_source=$site_root/comp-150-alg-project
-comp_150_dest=$jekyll_static_site/compresssion
+comp_150_dest=$jekyll_static_site/compression
 
 # build jekyll site
 cd $site_root/jekyll_site
